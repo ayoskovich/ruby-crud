@@ -7,12 +7,13 @@ class Crudder
     end
 
     def show_items
-        puts "-----"
+        puts "-------------"
         puts "Current items"
         @items.each do |item|
             icon = item[:done] ? "done" : "todo"
             puts "#{icon}: #{item[:name]}"
         end
+        puts "-------------"
     end
 
     def add_item(name)
