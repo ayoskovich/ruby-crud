@@ -11,4 +11,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # look for GET requests to /products and route to products#index
+  #
+  # You could specify the routes like this
+  # get "/products", to: "products#index"
+  # post "/products", to: "products#create"
+  # get "/products/:id" to: "products#show"
+
+  root "products#index"
+  # But this is simpler
+  resources :products
 end

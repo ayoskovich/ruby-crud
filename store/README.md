@@ -22,3 +22,36 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## Notes
+
+Start a console: `bin/rails console`
+
+Create a new thing
+
+```ruby
+product = Product.new(name: "T-Shirt")
+Product.create(name: "Another product")
+Product.all
+found_product = Product.find(2)
+found_product.update(name: "Shoes")
+found_product.destroy
+```
+
+To reload the console (changes aren't auto-refreshed like the web server)
+`reload!`
+
+Validators are put on the models:
+```ruby
+product = Product.new
+product.save # returns false
+product.errors.full_messages
+```
+
+
+To create controllers (--skip-routes will just not add the routes to `routes.rb`):
+
+```
+bin/rails generate controller Products index --skip-routes
+```
