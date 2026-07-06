@@ -55,3 +55,15 @@ To create controllers (--skip-routes will just not add the routes to `routes.rb`
 ```
 bin/rails generate controller Products index --skip-routes
 ```
+
+
+To add authentication:
+
+```language
+bin/rails generate authentication
+bin/rails db:migrate
+bin/rails console
+User.create! email_address: "test@example.com", password: "test", password_confirmation: "test"
+```
+
+
