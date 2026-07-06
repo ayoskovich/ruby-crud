@@ -3,6 +3,9 @@
 <% cache @product do %>
   <h1><%= @product.name %></h1>
   <%= @product.description %>
+  <p>Current inventory:
+  <%= @product.inventory_count %>
+  </p>
 <% end %>
 
 <%= link_to "Back", products_path %>
