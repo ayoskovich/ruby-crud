@@ -1,5 +1,8 @@
 # This gets created via "generate controller Products"
 class ProductsController < ApplicationController
+  # Allow unauth users to see index
+  allow_unauthenticated_access only: %i[ index show ]
+
   # This runs set_product before these methods
   before_action :set_product, only: %i[ show edit update destroy ]
 
@@ -8,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # Shows an individual product
   end
 
   def new
@@ -47,6 +51,6 @@ class ProductsController < ApplicationController
     def product_params
       # Use rails parameter filtering to only accept name 
       # input
-      params.expect(product: [ :name ])
+      params.expect(product: [ :name, :description ])
     end
 end

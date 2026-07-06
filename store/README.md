@@ -59,7 +59,7 @@ bin/rails generate controller Products index --skip-routes
 
 To add authentication:
 
-```language
+```
 bin/rails generate authentication
 bin/rails db:migrate
 bin/rails console
@@ -67,3 +67,15 @@ User.create! email_address: "test@example.com", password: "test", password_confi
 ```
 
 
+I tried to install action_text with `bundle install` but got this:
+
+```
+Bundler::PermissionError: There was an error while trying to write to `/usr/lib/ruby/gems/3.4.0/cache`. It is likely that you
+need to grant write permissions for that path.
+```
+
+To fix, run this:
+
+```
+bundle config set --local path 'vendor/bundle'
+```
