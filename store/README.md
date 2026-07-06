@@ -79,3 +79,9 @@ To fix, run this:
 ```
 bundle config set --local path 'vendor/bundle'
 ```
+
+Format a db query, use `.map`:
+
+```ruby
+Subscriber.includes(:product).map { |s| "#{s.email} - #{s.product.name}" }
+```
