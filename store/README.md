@@ -85,3 +85,7 @@ Format a db query, use `.map`:
 ```ruby
 Subscriber.includes(:product).map { |s| "#{s.email} - #{s.product.name}" }
 ```
+
+
+Format code with `bin/rubocop -a`
+Check for security issues with `bin/brakeman`

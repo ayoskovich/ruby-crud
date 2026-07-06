@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
     def product_params
-      # Use rails parameter filtering to only accept name 
+      # Use rails parameter filtering to only accept name
       # input
       params.expect(product: [ :name, :description, :featured_image, :inventory_count ])
     end
