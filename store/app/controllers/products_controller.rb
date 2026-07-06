@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
     def product_params
       # Use rails parameter filtering to only accept name 
       # input
-      params.expect(product: [ :name, :description ])
+      params.expect(product: [ :name, :description, :featured_image ])
     end
 end

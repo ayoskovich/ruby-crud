@@ -1,4 +1,7 @@
-<h1>Products#index</h1>
+<!-- "." is a relative lookup based on the controller 
+  and action. This does "en.products.index.title"
+-->
+<h1><%= t ".title" %></h1>
 
 <%= link_to "New product", new_product_path if authenticated? %>
 <%= link_to "Login", new_session_path unless authenticated? %>
