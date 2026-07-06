@@ -22,5 +22,7 @@ Rails.application.routes.draw do
 
   root "products#index"
   # But this is simpler
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
 end
