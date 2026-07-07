@@ -24,19 +24,32 @@
   </head>
 
   <body>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
-    <div class="alert">
-      <%= flash[:alert] %>
-    </div>
+    <% if flash[:notice].present? %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <nav>
-      <%= link_to "Home", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      <h1 style="flex: 1;">
+        <%= link_to "Store", root_path, style: "text-decoration: none; font-weight: 600;" %>
+      </h1>
+      <div>
+        <% if authenticated? %>
+          <%= button_to "Log out", session_path, method: :delete, class: "btn-secondary" %>
+        <% else %>
+          <%= link_to "Sign in", new_session_path, class: "link-button" %>
+        <% end %>
+      </div>
     </nav>
 
     <main>
-    <%= yield %>
+      <%= yield %>
     </main>
   </body>
 </html>

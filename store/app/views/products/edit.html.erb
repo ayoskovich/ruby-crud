@@ -1,4 +1,8 @@
-
 <h1>Edit product</h1>
-<%= render "form", product: @product %>
-<%= link_to "Cancel edits", @product %>
+
+<div style="max-width: 600px;">
+  <%= render "form", product: @product %>
+  <div class="actions" style="margin-top: var(--spacing-lg);">
+    <%= link_to "Cancel", @product, class: "link-button secondary" %>
+  </div>
+</div>

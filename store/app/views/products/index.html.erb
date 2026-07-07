@@ -1,16 +1,12 @@
-<!-- "." is a relative lookup based on the controller 
+<!-- "." is a relative lookup based on the controller
   and action. This does "en.products.index.title"
 -->
 <h1><%= t ".title" %></h1>
 
-<%= link_to "New product", new_product_path if authenticated? %>
-<%= link_to "Login", new_session_path unless authenticated? %>
-
-<p>Here is a listing of all products:</p>
 <div id="products">
   <% @products.each do |product| %>
     <div>
-      <%= link_to product.name, product_path(product.id) %>
+      <%= link_to product.name, product_path(product.id), class: "text-link" %>
     </div>
   <% end %>
 </div>

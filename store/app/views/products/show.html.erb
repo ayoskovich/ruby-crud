@@ -1,26 +1,23 @@
-<p><%= link_to "Back", products_path %></p>
-
-
 <section class="product">
-  
-<%= image_tag @product.featured_image if @product.featured_image.attached? %>
+  <%= image_tag @product.featured_image if @product.featured_image.attached? %>
 
-<section class="product-info">
-  
-<% cache @product do %>
-  <h1><%= @product.name %></h1>
-  <%= @product.description %>
-  <p>Current inventory:
-  <%= @product.inventory_count %>
-  </p>
-<% end %>
+  <section class="product-info">
+    <% cache @product do %>
+      <h1><%= @product.name %></h1>
+      <%= @product.description %>
+    <% end %>
 
-<%= render "inventory", product: @product %>
+    <p><strong>Availability:</strong> <%= @product.inventory_count %> in stock</p>
 
-<%= link_to "Back", products_path %>
-<% if authenticated? %>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you positive?" } %>
-<% end %>
-</section>
+    <%= render "inventory", product: @product %>
+
+    <div class="actions">
+      <%= link_to "Back to products", products_path, class: "link-button secondary" %>
+      <hr>
+      <% if authenticated? %>
+        <%= link_to "Edit", edit_product_path(@product), class: "link-button" %>
+        <%= button_to "Delete", @product, method: :delete, class: "btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </section>
 </section>
