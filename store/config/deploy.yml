@@ -2,12 +2,12 @@
 service: store
 
 # Name of the container image (use your-user/app-name on external registries).
-image: store
+image: ayoskovich/rubystore
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 3.235.128.103
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -26,15 +26,9 @@ servers:
 
 # Where you keep your container images.
 registry:
-  # Alternatives: hub.docker.com / registry.digitalocean.com / ghcr.io / ...
-  server: localhost:5555
-
-  # Needed for authenticated registries.
-  # username: your-user
-
-  # Always use an access token rather than real password when possible.
-  # password:
-  #   - KAMAL_REGISTRY_PASSWORD
+  username: ayoskovich
+  password:
+    - KAMAL_REGISTRY_PASSWORD
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
@@ -91,8 +85,10 @@ builder:
   #   - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
-# ssh:
-#   user: app
+ssh:
+  user: ubuntu
+  keys:
+    - ~/Downloads/DemoRubyKeyPair.pem
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
