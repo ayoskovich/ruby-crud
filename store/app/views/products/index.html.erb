@@ -3,6 +3,7 @@
 -->
 <h1><%= t ".title" %></h1>
 
+<%= link_to "Add a product", new_product_path if authenticated? %>
 <div id="products">
   <% @products.each do |product| %>
     <div>
